@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 40px;
+  background-color: #fff;
+  color: #444;
+  font: 1.4em Arial, sans-serif;
+}
+
+.grid {
+  width: 100%;
+
+  > * {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+    border: 5px solid rgba(214, 128, 137, 0.5);
+    border-radius: 5px;
+    background-color: rgba(233, 78, 119, 0.5);
+    color: #fff;
+    width: calc(100% / 3 - 2 * 10px);
+  }
+}
+
+@supports (display: grid) {
+  .grid {
+    display: grid;
+    transform: rotate(5deg);
+    grid-template-columns: 1fr 2fr 3fr;
+    grid-template-areas: "one two three" "four . .";
+    grid-auto-rows: 100px;
+    grid-gap: 20px;
+    > * {
+      width: auto;
+    }
+  }
+
+  .three {
+    grid-area: two;
+  }
+}

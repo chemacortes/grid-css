@@ -1,0 +1,54 @@
+body {
+  text-align: center;
+}
+
+$tam: 24em;
+
+// Fallback cuando el navegador no soporta flex ni grid
+.grid-wrapper {
+  display: inline-block;
+}
+
+.grid-card {
+  max-width: $tam;
+  //display: inline-block;
+  float: left;
+  margin: 1.5em 1em;
+  text-align: left;
+  &-img {
+    width: $tam;
+  }
+}
+
+// Se sobrescribe diseño anterior cuando el navegador soporta flex
+@supports (display: flex) {
+  .grid-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1.5em 0 1.5em -1em;
+    justify-content: space-around;
+  }
+
+  .grid-card {
+    padding: 1.5em 0 0 1em;
+    flex: 1 0 $tam;
+    max-width: $tam;
+    width: auto;
+    margin: initial;
+  }
+}
+
+// Se sobrescriben diseños anteriores cuando el navegador soporta grid
+@supports (display: grid) {
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($tam, 1fr));
+    grid-gap: 0.8em;
+    margin: initial;
+  }
+
+  .grid-card {
+    padding: initial;
+    max-width: none;
+  }
+}

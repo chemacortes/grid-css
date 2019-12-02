@@ -1,0 +1,49 @@
+body {
+  text-align: center;
+}
+
+.grid-wrapper {
+  display: inline-block;
+}
+
+.grid-card {
+  max-width: 24em;
+  float: left;
+  margin: 1.5em 1em;
+  text-align: left;
+}
+.grid-card-img {
+  width: 24em;
+}
+
+@supports (display: flex) {
+  .grid-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1.5em 0 1.5em -1em;
+    justify-content: space-around;
+  }
+
+  .grid-card {
+    padding: 1.5em 0 0 1em;
+    flex: 1 0 24em;
+    max-width: 24em;
+    width: auto;
+    margin: initial;
+  }
+}
+@supports (display: grid) {
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(24em, 1fr));
+    grid-gap: 0.8em;
+    margin: initial;
+  }
+
+  .grid-card {
+    padding: initial;
+    max-width: none;
+  }
+}
+
+/*# sourceMappingURL=style2.css.map */
