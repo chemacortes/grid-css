@@ -21,7 +21,17 @@ body {
     border-radius: 5px;
     background-color: rgba(233, 78, 119, 0.5);
     color: #fff;
-    width: calc(100% / 3 - 2 * 10px);
+    height: 100px;
+
+    &:nth-child(3n + 1) {
+      width: calc(100% / 6 - 2 * 10px);
+    }
+    &:nth-child(3n + 2) {
+      width: calc(100% / 3 - 2 * 10px);
+    }
+    &:nth-child(3n + 3) {
+      width: calc(100% / 2 - 2 * 10px);
+    }
   }
 }
 
@@ -34,7 +44,8 @@ body {
     grid-auto-rows: 100px;
     grid-gap: 20px;
     > * {
-      width: auto;
+      margin: initial;
+      width: auto !important;
     }
   }
 
